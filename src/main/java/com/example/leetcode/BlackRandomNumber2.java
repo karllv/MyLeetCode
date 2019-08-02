@@ -10,7 +10,7 @@ package com.example.leetcode;
 import java.util.*;
 
 /**
- * Created by karl on 2019/8/1.
+ * Created by karl on 2019/8/1.（240ms）
  */
 public class BlackRandomNumber2 {
     /*  给定一个包含 [0，n ) 中独特的整数的黑名单 B，

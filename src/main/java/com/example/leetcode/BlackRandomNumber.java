@@ -27,15 +27,19 @@ public class BlackRandomNumber {
 
     public int pick() {
 
+        Set<Integer> allSet = new HashSet<>();
         List<Integer> allList = new ArrayList<>();
+        Set<Integer> blackSet = new HashSet<>();
         List<Integer> blackList = new ArrayList<>();
         for (int i = 0; i< N; i++) {
-            allList.add(i);
+            allSet.add(i);
         }
         for (int i = 0; i< blacklist.length; i++) {
-            blackList.add(blacklist[i]);
+            blackSet.add(blacklist[i]);
         }
 
+        allList.addAll(allSet);
+        blackList.addAll(blackSet);
         allList = disjunction(allList, blackList);
 
         return allList.get(new Random().nextInt(allList.size()));
@@ -44,7 +48,7 @@ public class BlackRandomNumber {
     }
 
 
-    public static List disjunction(Collection a, Collection b) {
+    public static List disjunction(List a,List b) {
         ArrayList list = new ArrayList();
         Map mapa = getCardinalityMap(a);
         Map mapb = getCardinalityMap(b);
@@ -64,7 +68,7 @@ public class BlackRandomNumber {
         return list;
     }
 
-    public static Map getCardinalityMap(Collection coll) {
+    public static Map getCardinalityMap(List coll) {
         Map count = new HashMap();
         Iterator it = coll.iterator();
 
